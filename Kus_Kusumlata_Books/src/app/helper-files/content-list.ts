@@ -19,10 +19,10 @@ export class ContentList{
  }
 
   getHtml(index: number): string{
- if (index >= this._items.length || index < 0)
- {
-      return "<div>Something went wrong</div>"
-     }
+    if (index < 0 || index >= this.items.length) {
+        return `<div>Please provide a valid index.</div>`;
+      }
+  
      let itemAtIndex = this._items[index]
     return `<div class="title">${itemAtIndex.title}</div>
              <div class="description">${itemAtIndex.description}</div>
