@@ -1,6 +1,6 @@
 <p>content-list works!</p>
 <div *ngFor="let content of contentListArray| slice: 0:5; let isFirst = first"
-     [style.border]="isFirst ? '2px solid black' : '1px solid black'" class="contentList">
+     [style.border]="isFirst ? '2px solid black' : '1px solid red'" class="contentList">
   <h2>{{ content.title }}</h2>
   <p>{{ content.description }}</p>
   <img *ngIf="content.imgURL" [src]="content.imgURL" (click)="showContent(content)">
