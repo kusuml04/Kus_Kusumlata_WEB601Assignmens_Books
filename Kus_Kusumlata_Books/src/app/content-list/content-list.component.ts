@@ -7,7 +7,9 @@ import { Content } from '../helper-files/content-interface';
   styleUrls: ['./content-list.component.scss']
 })
 export class ContentListComponent {
-    contentListArray =[
+  
+    
+  contentList:Content[] =[
     {
       id: 0,
       title: "The Immortals of Meluha",
@@ -30,7 +32,7 @@ export class ContentListComponent {
       description: "The novel follows three friends, Hari, Ryan, and Alok, while they study engineering at the prestigious Indian Institute of Technology (IIT) in Delhi.",
       creator: "Chetan Bhagat",
       imgURL: "assets/img/img3.jpg",
-      type: "Humor"
+      type: "History"
     },
     {
       id: 3,
@@ -38,7 +40,7 @@ export class ContentListComponent {
       description: 'It tells the powerful and emotionally charged story of a teenage girl named Eden, who grapples with the aftermath of a traumatic event that changes her life forever.',
       creator: 'Amber Smith',
       imgURL: 'assets/img/img4.jpg',
-      type: 'Young Adult Fiction',
+      type: 'History'
       
     },
     {
@@ -47,15 +49,20 @@ export class ContentListComponent {
       description: 'The story revolves around January Andrews, a bestselling romance author, who finds herself in a writing slump after her fathers death and a shocking revelation about his secret life.',
       creator: 'Emily Henry',
       imgURL: 'assets/img/img5.jpg',
-      type: 'Romance',
+      type: ''
       
     }
     
     ];
+    findTitle : string ='';
+    filterResult: boolean = false;
+    searchResult: string = '';
+    isContentFound: boolean = false;
 
-    showContent(getContent: any) {
-      console.log('Content ID:', getContent.id);
-      console.log('Content Title:', getContent.title);
-  }
+    findContent() {
+      this.filterResult = this.contentList.some(content => content.title === this.findTitle);
+      this.isContentFound = !!this.filterResult;
+      this.searchResult = this.isContentFound ? 'Content item found!' : 'Content item not found!';
+      }
 
   }

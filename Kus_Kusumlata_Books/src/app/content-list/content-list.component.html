@@ -1,10 +1,25 @@
-<p>content-list works!</p>
-<div *ngFor="let content of contentListArray| slice: 0:5; let isFirst = first"
-     [style.border]="isFirst ? '2px solid black' : '1px solid red'" class="contentList">
-  <h2>{{ content.title }}</h2>
-  <p>{{ content.description }}</p>
-  <img *ngIf="content.imgURL" [src]="content.imgURL" (click)="showContent(content)">
-  <p>{{ content.creator }}</p>
-  <p *ngIf="content.type">{{ content.type }}</p>
- 
+
+
+<h1 style="background-color: rgb(13, 228, 199); text-align: center;">Story Books</h1>
+<div id="filter">
+<input [(ngModel)]="findTitle"><button (click)="findContent()">Search</button>
+<br>
+<p [style.color]="isContentFound ? 'green' : 'red'">{{ searchResult  }}</p>
+</div>
+<div id="none">
+<h1>No Type</h1>
+<app-content-card class="none" *ngFor="let item of (contentList | contentFilter :'' )" [content]="item"  [ngClass]="{'highlight': item.title === findTitle && filterResult}" >
+</app-content-card>
+</div>
+
+<div  id ="Fantacy" >
+<h1>Fantacy</h1>
+<app-content-card  *ngFor="let item of (contentList | contentFilter :'History' )" [content]="item" [ngClass]="{'highlight': item.title === findTitle && filterResult}" >
+</app-content-card>
+</div>
+
+<div id ="Comedy">
+<h1>Fiction</h1>
+<app-content-card  *ngFor="let item of (contentList | contentFilter :'Comedy' )" [content]="item" [ngClass]="{'highlight': item.title === findTitle && filterResult}">
+</app-content-card>
 </div>
