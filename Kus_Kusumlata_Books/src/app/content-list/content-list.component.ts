@@ -40,7 +40,9 @@ export class ContentListComponent {
       description: 'It tells the powerful and emotionally charged story of a teenage girl named Eden, who grapples with the aftermath of a traumatic event that changes her life forever.',
       creator: 'Amber Smith',
       imgURL: 'assets/img/img4.jpg',
-      type: 'History'
+      type: 'History',
+      tags: ['hey']
+
       
     },
     {
@@ -48,7 +50,7 @@ export class ContentListComponent {
       title: 'Beach Read',
       description: 'The story revolves around January Andrews, a bestselling romance author, who finds herself in a writing slump after her fathers death and a shocking revelation about his secret life.',
       creator: 'Emily Henry',
-      imgURL: 'assets/img/img5.jpg',
+      imgURL: '',
       type: ''
       
     }
