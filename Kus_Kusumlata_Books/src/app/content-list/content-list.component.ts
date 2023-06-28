@@ -67,4 +67,11 @@ export class ContentListComponent {
       this.searchResult = this.isContentFound ? 'Content item found!' : 'Content item not found!';
       }
 
+      receiveNewContent(newContent: any): void {
+        // Add the new content item to the content list
+        console.log("newContent", newContent);
+        this.contentList = [...this.contentList, newContent];
+        console.log('contentList', this.contentList);
+      }
+
   }

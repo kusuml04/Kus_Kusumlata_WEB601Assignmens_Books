@@ -1,5 +1,7 @@
 
 
+<app-create-content (contentAdded)="receiveNewContent($event)"></app-create-content>
+
 <h1 style="background-color: rgb(13, 228, 199); text-align: center;">Story Books</h1>
 <div id="filter">
 <input [(ngModel)]="findTitle"><button (click)="findContent()">Search</button>
